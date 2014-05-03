@@ -45,8 +45,8 @@ require('opsgenie').heartbeat({
 The OpsGenie module can emit the following events:
 
 * **error** - If something goes wrong while communicating with OpsGenie,
-  an error event is emitted (note: if no listener is added, OpsGenie will not
-emit this event, but will instead log to STDERR);
+  an error event is emitted *(note: if no listener is added, OpsGenie will not
+emit this event)*
 * **heartbeat** - For every heartbeat sent to OpsGenie, the response JSON
   object is emitted
 
