@@ -8,6 +8,12 @@ When operating a Node.js app, you need to be notified of downtime. Services like
 
 If your app is running behind a firewall (intranet) or it's a background job not inteded to be publically available, Pingdom and similar services have no way of pinging it. The solution of cause is to reverse the roles and let your app ping the monitoring service. [OpsGenie provide such an API](http://support.opsgenie.com/customer/portal/articles/759603-heartbeat-monitoring).
 
+## Install
+
+```
+npm install opsgenie
+```
+
 ## Usage
 
 You can either configure OpsGenie using environment variables, or configure it using the `.heartbeat()` function.
