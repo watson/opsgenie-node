@@ -73,6 +73,14 @@ describe('._config()', function () {
     opsgenie._config();
     assert.equal(opsgenie._configuration.source, os.hostname());
   });
+
+  it('should return true if it could find an API key', function () {
+    assert(opsgenie._config({ apiKey: 1 }));
+  });
+
+  it('should return false if it couldn\'t find an API key', function () {
+    assert(!opsgenie._config());
+  });
 });
 
 describe('._error()', function () {
@@ -97,7 +105,6 @@ describe('.heartbeat()', function () {
   beforeEach(function () {
     clock = sinon.useFakeTimers('setInterval');
     sinon.stub(opsgenie, '_sendHeartbeat');
-    opsgenie.heartbeat();
   });
 
   afterEach(function () {
@@ -106,12 +113,23 @@ describe('.heartbeat()', function () {
   });
 
   it('should send a heartbeat immediately', function () {
+    opsgenie.heartbeat({ apiKey: 1 });
     sinon.assert.calledOnce(opsgenie._sendHeartbeat);
   });
 
   it('should send a heartbeat again after 5 minutes', function () {
+    opsgenie.heartbeat({ apiKey: 1 });
     clock.tick(5000 * 60);
     sinon.assert.calledTwice(opsgenie._sendHeartbeat);
+  });
+
+  it('should not start if no API key was given', function () {
+    sinon.stub(console, 'warn');
+    opsgenie.heartbeat();
+    clock.tick(5000 * 60);
+    sinon.assert.notCalled(opsgenie._sendHeartbeat);
+    sinon.assert.calledOnce(console.warn);
+    console.warn.restore();
   });
 });
 

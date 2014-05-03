@@ -28,7 +28,10 @@ process.nextTick(function () {
 });
 
 function start(options) {
-  opsgenie._config(options);
+  if (!opsgenie._config(options)) {
+    console.warn('[opsgenie] could not find API key - heartbeat agent disabled!');
+    return;
+  }
   opsgenie._sendHeartbeat();
   setInterval(opsgenie._sendHeartbeat, 5000 * 60);
 }
@@ -39,6 +42,7 @@ function config(options) {
     apiKey: options.apiKey || process.env.OPSGENIE_API_KEY,
     source: options.source || process.env.OPSGENIE_SOURCE || os.hostname()
   };
+  return !!opsgenie._configuration.apiKey;
 }
 
 function error(err) {
