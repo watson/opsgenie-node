@@ -34,6 +34,28 @@ require('opsgenie').heartbeat({
 });
 ```
 
+## Advanced usage
+
+The OpsGenie module can emit the following events:
+
+* **error** - If something goes wrong while communicating with OpsGenie,
+  an error event is emitted (note: if no listener is added, OpsGenie will not
+emit this event, but will instead log to STDERR);
+* **heartbeat** - For every heartbeat sent to OpsGenie, the response JSON
+  object is emitted
+
+```javascript
+var opsgenie = require('opsgenie');
+
+opsgenie.on('error', function (err) {
+  console.log('Something went wrong while communicating with OpsGenie: ' + err.message);
+});
+
+opsgenie.on('heartbeat', function (res) {
+  console.log('OpsGenie heartbeat result:', res);
+});
+```
+
 ## License
 
 MIT
