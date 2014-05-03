@@ -2,6 +2,8 @@
 
 A Node.js module for sending heartbeats to [OpsGenie](https://www.opsgenie.com/).
 
+[![Build Status](https://travis-ci.org/watson/opsgenie-node.png)](https://travis-ci.org/watson/opsgenie-node)
+
 ## Why?
 
 When operating a Node.js app, you need to be notified of downtime. Services like [Pingdom](http://pingdom.com) allow you to monitor the availability of your app by pinging it periodically and alerting you if it cannot be reached. But this requires your app to be available online.
