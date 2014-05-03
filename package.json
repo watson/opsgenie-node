@@ -1,0 +1,35 @@
+{
+  "name": "opsgenie",
+  "version": "0.1.0",
+  "description": "A module for sending heartbeats to OpsGenie",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/watson/opsgenie-node.git"
+  },
+  "keywords": [
+    "ops",
+    "devops",
+    "intranet",
+    "worker",
+    "heartbeat",
+    "opsgenie",
+    "monitor",
+    "monitoring",
+    "uptime"
+  ],
+  "author": "Thomas Watson Steen <w@tson.dk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/watson/opsgenie-node/issues"
+  },
+  "homepage": "https://github.com/watson/opsgenie-node",
+  "devDependencies": {
+    "sinon": "^1.9.1",
+    "mocha": "^1.18.2",
+    "nock": "^0.28.3"
+  }
+}
