@@ -25,7 +25,7 @@ If no source is provided, either by `OPSGENIE_SOURCE` or by setting it via the `
 require('opsgenie');
 ```
 
-**Example 2*** - Configure OpsGenie using the `.heartbeat()` function:
+**Example 2** - Configure OpsGenie using the `.heartbeat()` function:
 
 ```javascript
 require('opsgenie').heartbeat({
