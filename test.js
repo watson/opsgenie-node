@@ -28,7 +28,7 @@ var testResponse = function () {
   };
 };
 
-sinon.stub(opsgenie, 'heartbeat'); // we have to stup this before next tick
+sinon.stub(opsgenie, 'heartbeat'); // we have to stub this before next tick
 describe('OpsGenie object', function () {
   after(function () {
     opsgenie.heartbeat.restore();
