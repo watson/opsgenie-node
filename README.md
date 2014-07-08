@@ -23,9 +23,9 @@ You can either configure OpsGenie using environment variables, or configure it u
 OpsGenie environment variables:
 
 * `OPSGENIE_API_KEY` - Your personal OpsGenie API key
-* `OPSGENIE_SOURCE` - The hostname that the OpsGenie heartbeat agent should register as (optional)
+* `OPSGENIE_NAME` - The hostname that the OpsGenie heartbeat agent should register as (optional)
 
-If no source is provided, either by `OPSGENIE_SOURCE` or by setting it via the `.heartbeat()` function, the hostname of the server will be used.
+If no name is provided, either by `OPSGENIE_NAME` or by setting it via the `.heartbeat()` function, the hostname of the server will be used.
 
 **Example 1** - Using OpsGenie with environment variables:
 
@@ -38,7 +38,7 @@ require('opsgenie');
 ```javascript
 require('opsgenie').heartbeat({
   apiKey: 'eb243592-faa2-4ba2-a551q-1afdf565c889',
-  source: 'host-name'
+  name: 'host-name'
 });
 ```
 
